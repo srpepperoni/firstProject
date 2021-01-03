@@ -1,4 +1,4 @@
-package main
+package firstProject
 
 import (
 	"github.com/go-chi/chi"
