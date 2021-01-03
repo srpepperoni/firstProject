@@ -1,4 +1,4 @@
-package firstProject
+package main
 
 import (
 	"encoding/json"

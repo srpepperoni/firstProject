@@ -1,5 +1,4 @@
-package firstProject
-
+package main
 
 func main() {
 	mux := Routes()
