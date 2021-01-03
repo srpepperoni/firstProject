@@ -41,3 +41,7 @@ $>docker run --name mysql-for-go -e MYSQL_ROOT_PASSWORD=root-go -d -p 33006:3306
 NOTA: Interfaces en GO son implicitas. Una vez cualquier strcutura defina un metodo con
 la misma signatura que la interfaz se entendera que está implementando esa interfaz
 (JAVA y c# usan interfaces explicitas)
+
+Terminar PlayerHAndler
+Inyectar handler en el router
+configurar cliente sql
