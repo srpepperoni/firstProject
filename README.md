@@ -1,38 +1,16 @@
-# firstProject
-My first go project
+# My first Go project
+
+In this project I going to practice with Go language. 
+I will try to implement all interesting things that can be done with this technology in order to improve new programming skills.
 
 ## TODO LIST
-    [DONE] Crear peticion rest simple get
-    [DONE] Crear peticion rest post dinamica: que lea el body de la peticion o los parametros
-    [DONE] generar modelos simples 
-    [TODO] generar test de los modelos
-    [DONE] crear conexion con bdd mysql
-    [DONE] crear un pequeño CRUD con la MYSQL
+  - [x] Implement simple CRUD methods
+  - [x] Implement simple API Rest (Get, POST, Delete...)
+  - [x] Create unit test for hnadlers
+  - [ ] Create unit test for models
+  - [ ] Create benchmark test
 
-## Modulos
-
-Para añadir modulos en el proyecto.
-- Ir al raiz y lanzar $>go mod init
-- Esto creara el fichero go.mod
-- go mod tidy -> para cleanear
-
-### Enable Go modules in a project (GoLand IDE)
-
-A new Go modules project already has Go modules enabled.
-If you pulled your Go modules project from Github, you need to enable Go modules manually.
-
-- Open settings by pressing Ctrl+Alt+S and navigate to Go | Go modules.
-- Select the Enable Go modules integration checkbox.
-- Click OK.
-
-## Links
-
- - Why to use cmd directory convention:
-https://medium.com/@benbjohnson/structuring-applications-in-go-3b04be4ff091
-   
- - Understanding "methods" in Go: https://tour.golang.org/methods/1
-
-### Creando CRUD
+### TODO LIST: Implement simple CRUD methods
 
 Para probar en local lanzamos un contenedor docker con mysql
 ```bash
@@ -41,3 +19,32 @@ $>docker run --name mysql-for-go -e MYSQL_ROOT_PASSWORD=root-go -d -p 33006:3306
 NOTA: Interfaces en GO son implicitas. Una vez cualquier strcutura defina un metodo con
 la misma signatura que la interfaz se entendera que está implementando esa interfaz
 (JAVA y c# usan interfaces explicitas)
+
+### TODO LIST: Implement simple API Rest (Get, POST, Delete...)
+
+TBD
+
+## Document support tips
+
+### Document support tips: Modulos
+
+```bash
+$>go mod init # para inicializar proyecto con modulos en go
+$>go mod vendor # para crear carpeta vendor en el proyecto
+$>go mod tidy # Para organizar las dependencias no usadas y las importadas
+```
+
+#### Enable Go modules in a project (GoLand IDE)
+
+A new Go modules project already has Go modules enabled.
+If you pulled your Go modules project from Github, you need to enable Go modules manually.
+
+- Open settings by pressing Ctrl+Alt+S and navigate to Go | Go modules.
+- Select the Enable Go modules integration checkbox.
+- Click OK.
+
+## Extra Links
+
+- [Use of cmd directory](https://medium.com/@benbjohnson/structuring-applications-in-go-3b04be4ff091)
+
+- [Understanding "methods" in Go](https://tour.golang.org/methods/1)
