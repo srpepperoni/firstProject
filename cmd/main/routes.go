@@ -5,9 +5,10 @@ import (
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"net/http"
+	players "firstProject/basket/players/web"
 )
 
-func Routes() *chi.Mux {
+func routes(player *players.PlayerHandler) *chi.Mux {
 	mux := chi.NewMux()
 
 	// globals middleware
@@ -17,6 +18,12 @@ func Routes() *chi.Mux {
 	)
 
 	mux.Get("/hello", helloHandler)
+
+	mux.Route("/players", func(r chi.Router) {
+		r.Post("/", player.CreatePlayerHandler)
+		r.Delete("/{cityID:[0-9]+}", player.DeletePlayerHandler)
+		r.Patch("/{cityID:[0-9]+}", player.UpdatePlayerHandler)
+	})
 
 	return mux
 }

@@ -7,6 +7,8 @@ import (
 	"time"
 )
 
+const MySQLTimeFormat = "2006-01-02 15:04:05"
+
 /*
 	NOTA explicativa:
 	Definicion de la interfaz (en GO son implicitas: cualquier estructura que
@@ -32,7 +34,8 @@ func (s *PlayerStg) savePlayer(cmd *models.CreatePlayerCMD) (*models.Player, err
 		log.Fatalln(err.Error())
 		return nil, err
 	}
-	ts := time.Now().Unix()
+
+	ts := time.Now().Format(MySQLTimeFormat)
 
 	res, err := tx.Exec(`insert into player (name, last_name, height, updated_at) values (?, ?, ? , ?)`,
 		cmd.Name, cmd.LastName, cmd.Height, ts)
@@ -67,7 +70,8 @@ func (s *PlayerStg) editPlayer(cmd *models.UpdatePlayerCMD) (*models.Player, err
 		log.Fatalln(err.Error())
 		return nil, err
 	}
-	ts := time.Now().Unix()
+
+	ts := time.Now().Format(MySQLTimeFormat)
 
 	res, err := tx.Exec(`update player set name = ?, last_name = ?, height = ?, updated_at = ? where id = ?`,
 		cmd.Name, cmd.LastName, cmd.Height, ts, cmd.ID)

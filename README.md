@@ -2,12 +2,12 @@
 My first go project
 
 ## TODO LIST
-    [TODO] Crear peticion rest simple get
-    [TODO] Crear peticion rest post dinamica: que lea el body de la peticion o los parametros
+    [DONE] Crear peticion rest simple get
+    [DONE] Crear peticion rest post dinamica: que lea el body de la peticion o los parametros
     [DONE] generar modelos simples 
     [TODO] generar test de los modelos
-    [TODO] crear conexion con bdd mysql
-    [TODO] crear un pequeño CRUD con la MYSQL
+    [DONE] crear conexion con bdd mysql
+    [DONE] crear un pequeño CRUD con la MYSQL
 
 ## Modulos
 
@@ -41,7 +41,3 @@ $>docker run --name mysql-for-go -e MYSQL_ROOT_PASSWORD=root-go -d -p 33006:3306
 NOTA: Interfaces en GO son implicitas. Una vez cualquier strcutura defina un metodo con
 la misma signatura que la interfaz se entendera que está implementando esa interfaz
 (JAVA y c# usan interfaces explicitas)
-
-Terminar PlayerHAndler
-Inyectar handler en el router
-configurar cliente sql
