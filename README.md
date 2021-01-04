@@ -19,6 +19,9 @@ I will try to implement all interesting things that can be done with this techno
   - [x] Create unit test for hnadlers
   - [ ] Create unit test for models
   - [ ] Create benchmark test
+  - [ ] Configure zap log
+  - [ ] Impruve server configuration
+  - [ ] Impruve sql connection
 
 ### TODO LIST: Implement simple CRUD methods
 
@@ -56,5 +59,11 @@ If you pulled your Go modules project from Github, you need to enable Go modules
 ## Extra Links
 
 - [Use of cmd directory](https://medium.com/@benbjohnson/structuring-applications-in-go-3b04be4ff091)
-
 - [Understanding "methods" in Go](https://tour.golang.org/methods/1)
+- [Go and K8s](https://medium.com/programming-kubernetes/building-stuff-with-the-kubernetes-api-part-4-using-go-b1d0e3c1c899)
+- [Code organization](https://blog.golang.org/organizing-go-code)
+- [Docu Go](https://golang.org/doc/)
+- [Things to try](https://www.guru99.com/google-go-tutorial.html)
+
+
+
