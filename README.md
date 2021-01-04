@@ -3,6 +3,16 @@
 In this project I going to practice with Go language. 
 I will try to implement all interesting things that can be done with this technology in order to improve new programming skills.
 
+#### Table of Content
+
+ - [TODO LIST](https://github.com/srpepperoni/firstProject#todo-list)
+    - [TODO LIST: Implement simple API Rest (Get, POST, Delete...)](https://github.com/srpepperoni/firstProject#todo-list-implement-simple-crud-methods)
+    - [TODO LIST: Implement simple CRUD methods](https://github.com/srpepperoni/firstProject#todo-list-implement-simple-api-rest-get-post-delete)
+ - [Document support tips](https://github.com/srpepperoni/firstProject#document-support-tips)
+    - [Document support tips: Modulos](https://github.com/srpepperoni/firstProject#document-support-tips-modulos)
+        - [Enable Go modules in a project](https://github.com/srpepperoni/firstProject#enable-go-modules-in-a-project-goland-ide)
+ - [Extra Links](https://github.com/srpepperoni/firstProject#extra-links)   
+
 ## TODO LIST
   - [x] Implement simple CRUD methods
   - [x] Implement simple API Rest (Get, POST, Delete...)
