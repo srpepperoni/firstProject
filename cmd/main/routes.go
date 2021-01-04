@@ -21,8 +21,8 @@ func routes(player *players.PlayerHandler) *chi.Mux {
 
 	mux.Route("/players", func(r chi.Router) {
 		r.Post("/", player.CreatePlayerHandler)
-		r.Delete("/{cityID:[0-9]+}", player.DeletePlayerHandler)
-		r.Patch("/{cityID:[0-9]+}", player.UpdatePlayerHandler)
+		r.Delete("/{playerId:[0-9]+}", player.DeletePlayerHandler)
+		r.Patch("/{playerId:[0-9]+}", player.UpdatePlayerHandler)
 	})
 
 	return mux

@@ -69,7 +69,7 @@ func (h *PlayerHandler) UpdatePlayerHandler(w http.ResponseWriter, r *http.Reque
 
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
-		json.NewEncoder(w).Encode(map[string]string{"error": "cannot parse parameters"})
+		json.NewEncoder(w).Encode(map[string]string{"error": "cannot parse parameters from request"})
 		return
 	}
 
