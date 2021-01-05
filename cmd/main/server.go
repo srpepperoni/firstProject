@@ -1,9 +1,12 @@
 package main
 
 import (
+	"context"
+	logs "firstProject/internal/log"
 	"github.com/go-chi/chi"
-	"log"
 	"net/http"
+	"os"
+	"os/signal"
 	"time"
 )
 
@@ -23,6 +26,33 @@ func NewServer(mux *chi.Mux) *MyServer {
 	return &MyServer{s}
 }
 
+// Run: runs ListenAndServe on the http.Server with graceful shutdown
 func (s *MyServer) Run() {
-	log.Fatal(s.server.ListenAndServe())
+	logs.Log().Info("starting server...")
+
+	go func() {
+		if err := s.server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			logs.Sugar().Fatalf("could not listen on %s due to %s", s.server.Addr, err.Error())
+		}
+	}()
+	logs.Sugar().Infof("server is ready to handle requests %s", s.server.Addr)
+	s.gracefulShutdown()
+}
+
+// wait for an interrupt signal
+func (s *MyServer) gracefulShutdown() {
+	quit := make(chan os.Signal, 1)
+
+	signal.Notify(quit, os.Interrupt)
+	sig := <-quit
+	logs.Sugar().Infof("server is shutting down %s", sig.String())
+
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancel()
+
+	s.server.SetKeepAlivesEnabled(false)
+	if err := s.server.Shutdown(ctx); err != nil {
+		logs.Sugar().Fatalf("could not gracefully shutdown the server %s", err.Error())
+	}
+	logs.Log().Info("server stopped")
 }

@@ -16,12 +16,12 @@ I will try to implement all interesting things that can be done with this techno
 ## TODO LIST
   - [x] Implement simple CRUD methods
   - [x] Implement simple API Rest (Get, POST, Delete...)
-  - [x] Create unit test for hnadlers
+  - [ ] Create unit test for handlers
   - [ ] Create unit test for models
   - [ ] Create benchmark test
-  - [ ] Configure zap log
-  - [ ] Impruve server configuration
-  - [ ] Impruve sql connection
+  - [x] Configure zap log
+  - [x] Impruve server configuration
+  - [x] Impruve sql connection
 
 ### TODO LIST: Implement simple CRUD methods
 
