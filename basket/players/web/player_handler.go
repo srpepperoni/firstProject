@@ -5,8 +5,8 @@ import (
 	"firstProject/basket/players/gateway"
 	"firstProject/basket/players/models"
 	"firstProject/internal/database"
+	logs "firstProject/internal/log"
 	"github.com/go-chi/chi"
-	"log"
 	"net/http"
 	"strconv"
 )
@@ -32,7 +32,7 @@ func (h *PlayerHandler) CreatePlayerHandler(w http.ResponseWriter, r *http.Reque
 	res, err := h.SavePlayer(cmd)
 
 	if err != nil {
-		log.Fatalln(err.Error())
+		logs.Log().Error(err.Error())
 		w.WriteHeader(http.StatusBadRequest)
 		json.NewEncoder(w).Encode(map[string]string{"error": "cannot save player"})
 		return
@@ -93,7 +93,7 @@ func parseCreateRequest(r *http.Request) (*models.CreatePlayerCMD, error) {
 	err := json.NewDecoder(body).Decode(&cmd)
 
 	if err != nil {
-		log.Fatalln(err.Error())
+		logs.Log().Error(err.Error())
 		return nil, err
 	}
 
@@ -107,7 +107,7 @@ func parseUpdateRequest(r *http.Request, id int64) (*models.UpdatePlayerCMD, err
 	err := json.NewDecoder(body).Decode(&cmd)
 
 	if err != nil {
-		log.Fatalln(err.Error())
+		logs.Log().Error(err.Error())
 		return nil, err
 	}
 	cmd.ID = id

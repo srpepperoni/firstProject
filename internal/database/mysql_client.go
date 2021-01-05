@@ -2,7 +2,7 @@ package database
 
 import (
 	"database/sql"
-	"log"
+	logs "firstProject/internal/log"
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -14,15 +14,15 @@ func NewSqlClient(source string) *MySqlClient {
 	db, err := sql.Open("mysql", source)
 
 	if err != nil {
-		log.Printf("cadena: %s", source)
-		log.Fatal("cannot create db tentat: %s", err.Error())
+		logs.Sugar().Info("cadena: #{source}")
+		logs.Log().Error("cannot create db tentat: %s")
 		panic("..")
 	}
 
 	err = db.Ping()
 
 	if err != nil {
-		log.Println("cannot connect to mysql!")
+		logs.Log().Info("cannot connect to mysql!")
 	}
 
 	return &MySqlClient{db}

@@ -3,7 +3,7 @@ package gateway
 import (
 	"firstProject/basket/players/models"
 	"firstProject/internal/database"
-	"log"
+	logs "firstProject/internal/log"
 	"time"
 )
 
@@ -31,7 +31,7 @@ func (s *PlayerStg) savePlayer(cmd *models.CreatePlayerCMD) (*models.Player, err
 	tx, err := s.Begin()
 
 	if err != nil {
-		log.Fatalln(err.Error())
+		logs.Log().Error(err.Error())
 		return nil, err
 	}
 
@@ -41,7 +41,7 @@ func (s *PlayerStg) savePlayer(cmd *models.CreatePlayerCMD) (*models.Player, err
 		cmd.Name, cmd.LastName, cmd.Height, ts)
 
 	if err != nil {
-		log.Fatalln(err.Error())
+		logs.Log().Error(err.Error())
 		_ = tx.Rollback()
 		return nil, err
 	}
@@ -49,7 +49,7 @@ func (s *PlayerStg) savePlayer(cmd *models.CreatePlayerCMD) (*models.Player, err
 	lastID, err := res.LastInsertId()
 
 	if err != nil {
-		log.Fatalln(err.Error())
+		logs.Log().Error(err.Error())
 		_ = tx.Rollback()
 		return nil, err
 	}
@@ -67,7 +67,7 @@ func (s *PlayerStg) editPlayer(cmd *models.UpdatePlayerCMD) (*models.Player, err
 	tx, err := s.Begin()
 
 	if err != nil {
-		log.Fatalln(err.Error())
+		logs.Log().Error(err.Error())
 		return nil, err
 	}
 
@@ -77,7 +77,7 @@ func (s *PlayerStg) editPlayer(cmd *models.UpdatePlayerCMD) (*models.Player, err
 		cmd.Name, cmd.LastName, cmd.Height, ts, cmd.ID)
 
 	if err != nil {
-		log.Fatalln(err.Error())
+		logs.Log().Error(err.Error())
 		_ = tx.Rollback()
 		return nil, err
 	}
@@ -85,7 +85,7 @@ func (s *PlayerStg) editPlayer(cmd *models.UpdatePlayerCMD) (*models.Player, err
 	lastID, err := res.LastInsertId()
 
 	if err != nil {
-		log.Fatalln(err.Error())
+		logs.Log().Error(err.Error())
 		_ = tx.Rollback()
 		return nil, err
 	}
@@ -103,7 +103,7 @@ func (s *PlayerStg) deletePlayer(playerId int64) *models.Player {
 	tx, err := s.Begin()
 
 	if err != nil {
-		log.Fatalln(err.Error())
+		logs.Log().Error(err.Error())
 		return nil
 	}
 
@@ -118,7 +118,7 @@ func (s *PlayerStg) deletePlayer(playerId int64) *models.Player {
 	_, err = tx.Exec(`delete from player where id = ?`, playerId)
 
 	if err != nil {
-		log.Fatalln(err.Error())
+		logs.Log().Error(err.Error())
 		_ = tx.Rollback()
 		return nil
 	}

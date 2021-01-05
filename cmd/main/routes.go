@@ -2,10 +2,10 @@ package main
 
 import (
 	"encoding/json"
+	players "firstProject/basket/players/web"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"net/http"
-	players "firstProject/basket/players/web"
 )
 
 func routes(player *players.PlayerHandler) *chi.Mux {
