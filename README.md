@@ -65,5 +65,23 @@ If you pulled your Go modules project from Github, you need to enable Go modules
 - [Docu Go](https://golang.org/doc/)
 - [Things to try](https://www.guru99.com/google-go-tutorial.html)
 
+## Mysql code for bdd
+
+```sql
+CREATE TABLE player
+(
+   `id`         int(11) not null auto_increment,
+   `name`       varchar(150),
+   `last_name`  varchar(150),
+   `height`     DECIMAL(4,2),
+   `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+   `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+   PRIMARY KEY (`id`)
+) engine = InnoDB
+  DEFAULT charset = utf8;
+
+INSERT INTO player (id, name, last_name, height) values (0, "Michael", "Jordan", 1.98);
+```
+
 
 

@@ -6,12 +6,11 @@ import (
 	logs "firstProject/internal/log"
 	"flag"
 	"fmt"
+	_ "github.com/golang-migrate/migrate/source/file"
 	"os"
 )
 
-const (
-	mysqlConnStr = "%s:%s@tcp(%s:%s)/%s?parseTime=true"
-)
+const mysqlConnStr = "%s:%s@tcp(%s:%s)/%s?parseTime=true"
 
 func main() {
 	environment := initEnv()
