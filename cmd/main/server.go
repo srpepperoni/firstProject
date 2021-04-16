@@ -3,11 +3,12 @@ package main
 import (
 	"context"
 	logs "firstProject/internal/log"
-	"github.com/go-chi/chi"
 	"net/http"
 	"os"
 	"os/signal"
 	"time"
+
+	"github.com/go-chi/chi"
 )
 
 type MyServer struct {
