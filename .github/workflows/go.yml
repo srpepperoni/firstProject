@@ -30,7 +30,7 @@ jobs:
         docker login -u ${{secrets.DOCKER_USER}} -p ${{secrets.DOCKER_TOKEN}}
 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag firstproject:$(date +%s)
+      run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/firstproject:$(date +%s)
 
     - name: Docker Push
-      run: docker push firstproject:$(date +%s)
+      run: docker push ${{secrets.DOCKER_USER}}/firstproject:$(date +%s)
