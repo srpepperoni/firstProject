@@ -33,4 +33,4 @@ jobs:
       run: docker build . --file Dockerfile --tag firstproject:$(date +%s)
 
     - name: Docker Push
-      run: docker push ${{secrets.DOCKER_USER}}/firstproject
+      run: docker push firstproject:$(date +%s)
