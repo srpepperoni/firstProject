@@ -44,3 +44,7 @@ jobs:
       run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/firstproject:$GITHUB_RUN_NUMBER
     - name: Docker Push
       run: docker push ${{secrets.DOCKER_USER}}/firstproject:$GITHUB_RUN_NUMBER
+    - name: Build the Docker image LATEST
+      run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/firstproject:latest
+    - name: Docker Push LATEST
+      run: docker push ${{secrets.DOCKER_USER}}/firstproject:latest
